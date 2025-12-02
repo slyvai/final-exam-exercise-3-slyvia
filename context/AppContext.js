@@ -3,9 +3,7 @@ import React, { createContext, useState, useEffect } from 'react';
 export const AppContext = createContext();
 
 export function AppProvider({ children }) {
-// 1. Initialize theme state by checking localStorage
 const [theme, setThemeState] = useState(() => {
-    // Check if window is defined (to handle Next.js SSR)
     if (typeof window !== 'undefined') {
         const storedTheme = localStorage.getItem('appTheme');
         return storedTheme ? storedTheme : 'light';
